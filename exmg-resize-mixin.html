@@ -6,10 +6,14 @@
           width: {
             type: Number,
           },
-          mobile: {
+          narrow: {
             type: Boolean,
             reflectToAttribute: true,
-            computed: '_isMobile(width)'
+            computed: '_isNarrow(width)'
+          },
+          narrowWidth: {
+            type: Number,
+            value: 500,
           },
         };
       }
@@ -34,8 +38,8 @@
         window.removeEventListener('resize', this._boundNotifyResize);
       }
 
-      _isMobile() {
-        return this.width < 400;
+      _isNarrow() {
+        return this.width < this.narrowWidth;
       }
 
       /**

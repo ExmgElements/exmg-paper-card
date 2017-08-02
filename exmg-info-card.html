@@ -8,6 +8,8 @@
   <template>
     <style include="exmg-card-shared-styles">
       .container {
+        max-width: 700px;
+        margin: 0 auto;
         @apply(--layout-horizontal);
         @apply(--layout-center-justified);
       }
@@ -15,14 +17,17 @@
         text-align: center;
       }
       .image img {
-        padding: 24px;
-        max-width: 140px;
+        padding: 34px 24px;
+        max-width: 180px;
+      }
+      :host([narrow]) .image img {
+        padding: 24px 0 0 0;
+        max-width: 120px;
       }
       .main {
         padding: 24px;
-        max-width: 440px;
       }
-      :host([mobile]) > .container {
+      :host([narrow]) > .container {
         @apply(--layout-vertical);
       }
     </style>
