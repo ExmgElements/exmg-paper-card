@@ -13,41 +13,29 @@
     <link rel="import" href="../../iron-flex-layout/iron-flex-layout.html">
     <link rel="import" href="../../paper-button/paper-button.html">
     <link rel="import" href="../../paper-icon-button/paper-icon-button.html">
-
+    <link rel="import" href="../../paper-styles/paper-styles.html">
 
     <link rel="import" href="../../exmg-datatable/exmg-datatable.html">
     <link rel="import" href="../../exmg-datatable/exmg-thead.html">
     <link rel="import" href="../../exmg-datatable/exmg-tbody.html">
     <link rel="import" href="../../exmg-datatable/exmg-icons.html">
 
+    <link rel="import" href="../../exmg-cms-styles/exmg-cms-global-layout-styles.html">
+
     <link rel="import" href="../exmg-card.html">
+
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons+Extended">
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
         :host {
+          @apply --paper-font-common-base;
+          font-size: 14px;
         }
         .centered {
           max-width: 900px;
           margin-left: auto;
           margin-right: auto;
-        }
-        .flex {
-          @apply(--layout-flex);
-        }
-        .header paper-button {
-          color: rgb(255,255,255);
-          background-color: rgb(3,155,229);
-          padding: 8px 20px;
-        }
-        a {
-          color: #039be5;
-          text-decoration: underline;
-        }
-        .body{
-          color: rgba(0,0,0,0.54);
-          font-size: 14px;
-          line-height: 20px;
-          margin: 0;
         }
       </style>
     </custom-style>

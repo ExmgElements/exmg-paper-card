@@ -7,9 +7,6 @@
 <dom-module id="exmg-info-card">
   <template>
     <style include="exmg-card-shared-styles">
-      :host {
-
-      }
       .container {
         @apply(--layout-horizontal);
         @apply(--layout-center-justified);
@@ -28,13 +25,6 @@
       :host([mobile]) > .container {
         @apply(--layout-vertical);
       }
-      .title {
-        color: rgba(0,0,0,0.87);
-        font-size: 20px;
-        font-weight: 400;
-        line-height: 28px;
-        margin-bottom: 12px;
-      }
     </style>
     <div class="container">
       <template is="dom-if" if="[[cardImage]]" restamp="true">
@@ -44,7 +34,7 @@
         <template is="dom-if" if="[[title]]" restamp="true">
           <div class="title">[[title]]</div>
         </template>
-        <slot></slot>
+        <slot name="body"></slot>
       </div>
     </div>
   </template>
@@ -63,7 +53,7 @@
       static get properties() {
         return {
           cardImage: String,
-          title: String,
+          title: String
         };
       }
 
