@@ -102,12 +102,22 @@
       <h3>Search Header</h3>
       <demo-snippet>
         <template>
-          <exmg-card>
-            <exmg-search-header>
-              <paper-icon-button icon="exmg-icons:add"></paper-icon-button>
-            </exmg-search-header>
-            <div class="body">Lorem ipsum dolor sit amet, dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</div>
-          </exmg-card>
+          <!-- Wrap in dom-bind to enable polymer bindings -->
+          <dom-bind>
+            <template is="dom-bind">
+          
+              <exmg-card>
+                <exmg-search-header filter-value="{{filterValue}}">
+                  <paper-icon-button icon="exmg-icons:add"></paper-icon-button>
+                </exmg-search-header>
+                <div class="body">
+                  <span>Search: [[filterValue]]</span>
+                  <p> Lorem ipsum dolor sit amet, dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
+                </div>
+              </exmg-card>
+
+            </template>
+          </dom-bind>
         </template>
       </demo-snippet>
     </div>
