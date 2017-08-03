@@ -28,7 +28,7 @@
         padding: 24px;
       }
       :host([narrow]) > .container {
-        @apply(--layout-vertical);
+        @apply --layout-vertical;
       }
     </style>
     <div class="container">
@@ -58,7 +58,7 @@
       static get properties() {
         return {
           cardImage: String,
-          title: String
+          title: String,
         };
       }
 

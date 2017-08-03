@@ -1,0 +1,130 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../polymer/lib/mixins/gesture-event-listeners.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-input/iron-input.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+
+<!--
+`<exmg-search-header>` is Description
+
+@element ExmgSearchHeader
+-->
+<dom-module id="exmg-search-header">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      :host > div {
+         @apply --layout-horizontal;
+      }
+      h2 {
+        max-width: 936px;
+        width: 100%;
+        margin: 20px auto;
+      }
+      iron-input {
+        width: 100%;
+      }
+      iron-icon {
+        margin: 16px 0px 16px 16px;
+      }
+      ::slotted(*) {
+        margin: 8px 4px;
+      }
+      span.interactive-content {
+        margin-left: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        color: rgba(0,0,0,0.38);
+        font-size: 14px;
+        text-overflow: ellipsis;
+        letter-spacing: .005em;
+        box-sizing: border-box;
+        line-height: 56px;
+        font-weight: 400;
+        cursor: pointer;
+        width: 100%;
+        @apply --layout-flex;
+      }
+      .search {
+        background: white;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+            0 1px 5px 0 rgba(0, 0, 0, 0.12),
+            0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+      .search input {
+        font-size: 14px;
+        margin: 15px 0px;
+        padding: 4px;
+        border: 0px solid #dbdbdb;
+        width: 100%;
+        outline: none;
+        box-sizing: border-box;
+      }
+    </style>
+
+    <div class$="[[_computeSearchClasses(isSearch)]]">
+      <template is="dom-if" if="[[isSearch]]" restamp="true">
+        <iron-icon icon="exmg-icons:search"></iron-icon>
+        <iron-input bind-value="{{filterValue}}" >
+          <input id="searchInput" placeholder="[[placeHolder]]" value="{{value::input}}" on-keyup="_handleKeyUp" on-blur="_handleInputBlur">
+        </iron-input>
+      </template>
+      <template is="dom-if" if="[[!isSearch]]" restamp="true">
+        <iron-icon icon="exmg-icons:search"></iron-icon>
+        <span class="interactive-content" on-tap="_showSearch">[[_getFilterValue(filterValue)]]</span>
+        <slot><slot>
+      </template>
+    </div>
+
+  </template>
+
+  <script>
+    class ExmgSearchHeader extends Polymer.GestureEventListeners(Polymer.Element) {
+
+      static get is() { return 'exmg-search-header'; }
+
+      static get properties() {
+        return {
+          filterValue: {
+            type: String,
+            value: '',
+          },
+          isSearch: {
+            type: Boolean,
+            value: false,
+          },
+          placeHolder: {
+            type: String,
+            value: 'Search admin user by name',
+          }
+        };
+      }
+      _getFilterValue(filterValue) {
+        return filterValue || this.placeHolder;
+      }
+      _handleKeyUp(e) {
+        if(e.keyCode === 27) {
+          this._hideSearch();
+        }
+      }
+      _handleInputBlur() {
+        this._hideSearch();
+      }
+      _hideSearch() {
+        this.set('isSearch', false);
+      }
+      _showSearch() {
+        this.set('isSearch', true);
+        setTimeout(() => this.shadowRoot.querySelector('#searchInput').focus(), 200);
+      }
+      _computeSearchClasses(isSearch) {
+        return isSearch ? 'search' : '';
+      }
+    }
+
+    window.customElements.define(ExmgSearchHeader.is, ExmgSearchHeader);
+  </script>
+</dom-module>

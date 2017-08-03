@@ -16,20 +16,27 @@
                     0 1px 1px 0 rgba(0,0,0,0.14),
                     0 2px 1px -1px rgba(0,0,0,0.12);
         color: rgba(0,0,0,0.54);
+        @apply --layout-vertical;
       }
-      :host > ::slotted(.header) {
+
+      :host > ::slotted(.header),
+      :host > ::slotted(exmg-search-header){
         background-color: var(--paper-grey-50);
         box-shadow: 0 -1px 0 rgba(0,0,0,0.12) inset;
         color: rgba(0, 0, 0, var(--light-secondary-opacity));
         z-index: 5;
         -webkit-align-items: center;
         align-items: center;
-        display: flex;
-        flex-flow: row wrap;
         min-height: 56px;
         position: relative;
         border-radius: 2px 2px 0 0;
+      
+      }
+
+      :host > ::slotted(.header) {
         padding: 0 6px;
+        display: flex;
+        flex-flow: row wrap;
       }
       :host > ::slotted(.body) {
         padding: 24px;
@@ -37,8 +44,7 @@
       :host([mobile]) > ::slotted(.title) {
 
       }
-      .title,
-      :host > ::slotted(.title) {
+      .title {
         color: rgba(0,0,0,0.87);
         font-size: 20px;
         font-weight: 400;
