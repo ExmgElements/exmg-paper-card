@@ -10,6 +10,23 @@
 
 @element ExmgSearchHeader
 -->
+
+<!--
+`exmg-search-header` displays a card header including a search function.
+
+See card demo page for an working exmaple on how to use
+
+Example:
+
+  <exmg-search-header filter-value="{{filterValue}}" place-holder="Search user">
+    <paper-button raised>Add Item</paper-button>
+  </exmg-search-header>
+
+@group Exmg Elements
+@element exmg-card
+@demo demo/index.html
+-->
+
 <dom-module id="exmg-search-header">
   <template>
     <style>
@@ -65,14 +82,14 @@
       }
     </style>
 
-    <div class$="[[_computeSearchClasses(isSearch)]]">
-      <template is="dom-if" if="[[isSearch]]" restamp="true">
+    <div class$="[[_computeSearchClasses(_isSearch)]]">
+      <template is="dom-if" if="[[_isSearch]]" restamp="true">
         <iron-icon icon="exmg-icons:search"></iron-icon>
         <iron-input bind-value="{{filterValue}}" >
-          <input id="searchInput" placeholder="[[placeHolder]]" value="{{value::input}}" on-keyup="_handleKeyUp" on-blur="_handleInputBlur">
+          <input id="searchInput" placeholder="[[placeHolder]]" on-keyup="_handleKeyUp" on-blur="_handleInputBlur">
         </iron-input>
       </template>
-      <template is="dom-if" if="[[!isSearch]]" restamp="true">
+      <template is="dom-if" if="[[!_isSearch]]" restamp="true">
         <iron-icon icon="exmg-icons:search"></iron-icon>
         <span class="interactive-content" on-tap="_showSearch">[[_getFilterValue(filterValue)]]</span>
         <slot><slot>
@@ -88,20 +105,25 @@
 
       static get properties() {
         return {
+          /**
+          * Field that will contain the search value
+          */
           filterValue: {
             type: String,
             notify: true,
             value: '',
           },
-          value: String,
-          isSearch: {
+          /**
+          * Placeholder value to display in search field
+          */
+          placeHolder: {
+            type: String,
+            value: '',
+          },
+          _isSearch: {
             type: Boolean,
             value: false,
           },
-          placeHolder: {
-            type: String,
-            value: 'Search admin user by name',
-          }
         };
       }
       _getFilterValue(filterValue) {
@@ -116,14 +138,14 @@
         this._hideSearch();
       }
       _hideSearch() {
-        this.set('isSearch', false);
+        this.set('_isSearch', false);
       }
       _showSearch() {
-        this.set('isSearch', true);
+        this.set('_isSearch', true);
         setTimeout(() => this.shadowRoot.querySelector('#searchInput').focus(), 200);
       }
-      _computeSearchClasses(isSearch) {
-        return isSearch ? 'search' : '';
+      _computeSearchClasses(_isSearch) {
+        return _isSearch ? 'search' : '';
       }
     }
 

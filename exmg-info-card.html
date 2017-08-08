@@ -1,8 +1,31 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">[m ""]
 
 <link rel="import" href="exmg-resize-mixin.html">
 <link rel="import" href="exmg-card-shared-styles.html">
+
+<!--
+`exmg-info-card` displays a responsive info card. This card has multiple use cases
+
+* If a page is in initial state and intro explaination can be shown including an related image and link to more information/documentation
+* When a table has no data to display
+* As a setting
+
+See demo page for more detailed examples on how to use
+
+Example:
+
+  <exmg-info-card card-image="rocket.png" title="Test Title">
+    <div slot="body" class="body">
+      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit feugait nulla facilisi.<br>
+      <a href="#" target="_blank" class="open-new">More information</a>
+    </div>
+  </exmg-info-card>
+
+@group Exmg Elements
+@element exmg-card
+@demo demo/index.html
+-->
 
 <dom-module id="exmg-info-card">
   <template>
@@ -49,28 +72,24 @@
   </template>
 
   <script>
-    /**
-     * `exmg-card`
-     * Material design style cards
-     *
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
     class ExmgInfoCard extends ExmgResizeMixin(Polymer.Element) {
       static get is() { return 'exmg-info-card'; }
       static get properties() {
         return {
+          /**
+          * Image url of seaction logo/Image
+          */
           cardImage: String,
+          /**
+          * Title displayed inside the card
+          */
           title: String,
+          /**
+          * The full attribute removes the left and right padding inside the card so it is using all available space
+          */
           full: Boolean,
         };
       }
-
-      constructor() {
-        super();
-      }
-
     }
 
     window.customElements.define(ExmgInfoCard.is, ExmgInfoCard);
