@@ -3,10 +3,10 @@
 <link rel="import" href="../paper-styles/shadow.html">
 
 <link rel="import" href="exmg-resize-mixin.html">
-<link rel="import" href="exmg-card-shared-styles.html">
+<link rel="import" href="exmg-paper-card-shared-styles.html">
 
 <!--
-`exmg-card` displays a responsive info card. This card has multiple use cases
+`exmg-paper-card` displays a responsive info card. This card has multiple use cases
 
 ** If a page is in initial state and intro explaination can be shown including an related image and link to more information/documentation
 ** When a table has no data to display
@@ -24,19 +24,21 @@ Example:
   </exmg-info-card>
 
 @group Exmg Elements
-@element exmg-card
+@element exmg-paper-card
 @demo demo/index.html
 -->
 
-<dom-module id="exmg-card">
+<dom-module id="exmg-paper-card">
   <template>
-    <style include="exmg-card-shared-styles"></style>
+    <style include="exmg-paper-card-shared-styles"></style>
     <slot></slot>
   </template>
 
   <script>
     class ExmgCard extends ExmgResizeMixin(Polymer.Element) {
-      static get is() { return 'exmg-card'; }
+      static get is() {
+        return 'exmg-paper-card';
+      }
     }
 
     window.customElements.define(ExmgCard.is, ExmgCard);

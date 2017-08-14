@@ -2,7 +2,7 @@
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">[m ""]
 
 <link rel="import" href="exmg-resize-mixin.html">
-<link rel="import" href="exmg-card-shared-styles.html">
+<link rel="import" href="exmg-paper-card-shared-styles.html">
 
 <!--
 `exmg-info-card` displays a responsive info card. This card has multiple use cases
@@ -23,13 +23,13 @@ Example:
   </exmg-info-card>
 
 @group Exmg Elements
-@element exmg-card
+@element exmg-paper-card
 @demo demo/index.html
 -->
 
 <dom-module id="exmg-info-card">
   <template>
-    <style include="exmg-card-shared-styles">
+    <style include="exmg-paper-card-shared-styles">
       .container {
         max-width: 700px;
         margin: 0 auto;
@@ -73,7 +73,9 @@ Example:
 
   <script>
     class ExmgInfoCard extends ExmgResizeMixin(Polymer.Element) {
-      static get is() { return 'exmg-info-card'; }
+      static get is() {
+        return 'exmg-info-card';
+      }
       static get properties() {
         return {
           /**

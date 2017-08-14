@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>exmg-search-header demo</title>
+    <title>exmg-paper-search-header demo</title>
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
@@ -23,8 +23,8 @@
 
     <link rel="import" href="../../exmg-cms-styles/exmg-cms-page-styles.html">
 
-    <link rel="import" href="../exmg-card.html">
-    <link rel="import" href="../exmg-search-header.html">
+    <link rel="import" href="../exmg-paper-card.html">
+    <link rel="import" href="../exmg-paper-search-header.html">
 
     <custom-style>
       <style is="custom-style" include="exmg-cms-page-styles">
@@ -50,15 +50,15 @@
           <dom-bind>
             <template is="dom-bind">
 
-              <exmg-card>
-                <exmg-search-header filter-value="{{filterValue}}" place-holder="Search admin user by name">
+              <exmg-paper-card>
+                <exmg-paper-search-header filter-value="{{filterValue}}" place-holder="Search admin user by name">
                   <paper-icon-button icon="exmg-icons:add"></paper-icon-button>
-                </exmg-search-header>
+                </exmg-paper-search-header>
                 <div class="body">
                   <span>Search: [[filterValue]]</span>
                   <p> Lorem ipsum dolor sit amet, dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
                 </div>
-              </exmg-card>
+              </exmg-paper-card>
             </template>
           </dom-bind>
         </template>
@@ -71,10 +71,10 @@
           <dom-bind>
             <template is="dom-bind">
 
-              <exmg-card>
-                <exmg-search-header filter-value="{{filterValue}}" place-holder="Search admin user by name">
+              <exmg-paper-card>
+                <exmg-paper-search-header filter-value="{{filterValue}}" place-holder="Search admin user by name">
                   <paper-button raised>Add Item</paper-button>
-                </exmg-search-header>
+                </exmg-paper-search-header>
                 <exmg-datatable>
                   <!-- THead -->
                   <exmg-thead>
@@ -102,7 +102,7 @@
                     </template>
                   </exmg-tbody>
                 </exmg-datatable>
-              </exmg-card>
+              </exmg-paper-card>
 
               <!-- Filter items by filter value and return resulting items to the data provider  -->
               <exmg-data-filter

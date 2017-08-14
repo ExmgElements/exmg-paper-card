@@ -9,7 +9,7 @@
           narrow: {
             type: Boolean,
             reflectToAttribute: true,
-            computed: '_isNarrow(width)'
+            computed: '_isNarrow(width)',
           },
           narrowWidth: {
             type: Number,
@@ -49,7 +49,6 @@
       notifyResize(e) {
         this.set('width', this.offsetWidth);
       }
-
-    }
-  }
+    };
+  };
 </script>

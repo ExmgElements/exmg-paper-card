@@ -6,28 +6,28 @@
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 
 <!--
-`<exmg-search-header>` is Description
+`<exmg-paper-search-header>` is Description
 
 @element ExmgSearchHeader
 -->
 
 <!--
-`exmg-search-header` displays a card header including a search function.
+`exmg-paper-search-header` displays a card header including a search function.
 
 See card demo page for an working exmaple on how to use
 
 Example:
 
-  <exmg-search-header filter-value="{{filterValue}}" place-holder="Search user">
+  <exmg-paper-search-header filter-value="{{filterValue}}" place-holder="Search user">
     <paper-button raised>Add Item</paper-button>
-  </exmg-search-header>
+  </exmg-paper-search-header>
 
 @group Exmg Elements
-@element exmg-card
+@element exmg-paper-card
 @demo demo/index.html
 -->
 
-<dom-module id="exmg-search-header">
+<dom-module id="exmg-paper-search-header">
   <template>
     <style>
       :host {
@@ -100,9 +100,9 @@ Example:
 
   <script>
     class ExmgSearchHeader extends Polymer.GestureEventListeners(Polymer.Element) {
-
-      static get is() { return 'exmg-search-header'; }
-
+      static get is() {
+        return 'exmg-paper-search-header';
+      }
       static get properties() {
         return {
           /**
@@ -130,7 +130,7 @@ Example:
         return filterValue || this.placeHolder;
       }
       _handleKeyUp(e) {
-        if(e.keyCode === 27) {
+        if (e.keyCode === 27) {
           this._hideSearch();
         }
       }
