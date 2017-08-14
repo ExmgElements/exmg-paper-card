@@ -20,13 +20,11 @@
     <link rel="import" href="../../exmg-datatable/exmg-tbody.html">
     <link rel="import" href="../../exmg-datatable/exmg-icons.html">
 
-    <link rel="import" href="../../exmg-cms-styles/exmg-cms-page-styles.html">
-
     <link rel="import" href="../exmg-paper-card.html">
     <link rel="import" href="../exmg-paper-search-header.html">
 
     <custom-style>
-      <style is="custom-style" include="exmg-cms-page-styles">
+      <style is="custom-style" include="demo-pages-shared-styles">
         :host {
           @apply --paper-font-common-base;
           font-size: 14px;
@@ -35,6 +33,14 @@
           max-width: 900px;
           margin-left: auto;
           margin-right: auto;
+        }
+        .flex {
+          @apply --layout-flex;
+        }
+        .header paper-button {
+          color: rgb(255,255,255);
+          background-color: rgb(3,155,229);
+          padding: 8px 20px;
         }
       </style>
     </custom-style>
