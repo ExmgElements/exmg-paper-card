@@ -1,54 +1,53 @@
 <script>
-  ExmgResizeMixin = function(superClass) {
-    return class extends superClass {
-      static get properties() {
-        return {
-          width: {
-            type: Number,
-          },
-          narrow: {
-            type: Boolean,
-            reflectToAttribute: true,
-            computed: '_isNarrow(width)',
-          },
-          narrowWidth: {
-            type: Number,
-            value: 500,
-          },
-        };
-      }
+  /* @polymerMixin */
+  ExmgResizeMixin = (superClass) => class extends superClass {
+    static get properties() {
+      return {
+        width: {
+          type: Number,
+        },
+        narrow: {
+          type: Boolean,
+          reflectToAttribute: true,
+          computed: '_isNarrow(width)',
+        },
+        narrowWidth: {
+          type: Number,
+          value: 500,
+        },
+      };
+    }
 
-      constructor() {
-        super();
-        this._boundNotifyResize = this.notifyResize.bind(this);
-      }
+    constructor() {
+      super();
+      this._boundNotifyResize = this.notifyResize.bind(this);
+    }
 
-      connectedCallback() {
-        if (super.connectedCallback) {
-          super.connectedCallback();
-        }
-        window.addEventListener('resize', this._boundNotifyResize);
-        this.notifyResize();
+    connectedCallback() {
+      if (super.connectedCallback) {
+        super.connectedCallback();
       }
+      window.addEventListener('resize', this._boundNotifyResize);
+      this.notifyResize();
+    }
 
-      disconnectCallback() {
-        if (super.disconnectCallback) {
-          super.disconnectCallback();
-        }
-        window.removeEventListener('resize', this._boundNotifyResize);
+    disconnectCallback() {
+      if (super.disconnectCallback) {
+        super.disconnectCallback();
       }
+      window.removeEventListener('resize', this._boundNotifyResize);
+    }
 
-      _isNarrow() {
-        return this.width < this.narrowWidth;
-      }
+    _isNarrow() {
+      return this.width < this.narrowWidth;
+    }
 
-      /**
-       * Can be called to manually notify a resizable and its descendant
-       * resizables of a resize change.
-       */
-      notifyResize(e) {
-        this.set('width', this.offsetWidth);
-      }
-    };
+    /**
+     * Can be called to manually notify a resizable and its descendant
+     * resizables of a resize change.
+     */
+    notifyResize() {
+      this.set('width', this.offsetWidth);
+    }
   };
 </script>
