@@ -29,7 +29,7 @@ Example:
 @demo demo/index.html
 -->
 
-<dom-module id="exmg-info-card">
+<dom-module id="exmg-paper-info-card">
   <template>
     <style include="exmg-paper-card-shared-styles">
       .container {
@@ -74,9 +74,9 @@ Example:
   </template>
 
   <script>
-    class ExmgInfoCard extends ExmgResizeMixin(Polymer.Element) {
+    class ExmgPaperInfoCard extends ExmgResizeMixin(Polymer.Element) {
       static get is() {
-        return 'exmg-info-card';
+        return 'exmg-paper-info-card';
       }
       static get properties() {
         return {
@@ -96,6 +96,6 @@ Example:
       }
     }
 
-    window.customElements.define(ExmgInfoCard.is, ExmgInfoCard);
+    window.customElements.define(ExmgPaperInfoCard.is, ExmgPaperInfoCard);
   </script>
 </dom-module>
