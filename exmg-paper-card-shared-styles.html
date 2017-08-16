@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../paper-styles/color.html">
+<link rel="import" href="../paper-styles/shadow.html">
 <link rel="import" href="../paper-styles/typography.html">
 
 <dom-module id="exmg-paper-card-shared-styles">
@@ -12,16 +13,14 @@
         background-color: white;
         display: block;
         position: relative;
-        box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2),
-                    0 1px 1px 0 rgba(0,0,0,0.14),
-                    0 2px 1px -1px rgba(0,0,0,0.12);
-        color: rgba(0,0,0,0.54);
+        color: rgba(0, 0, 0, var(--dark-secondary-opacity));
+        @apply --shadow-elevation-2dp;
         @apply --layout-vertical;
       }
       :host > ::slotted(.header),
       :host > ::slotted(exmg-paper-search-header){
         background-color: var(--paper-grey-50);
-        box-shadow: 0 -1px 0 rgba(0,0,0,0.12) inset;
+        box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12) inset;
         color: rgba(0, 0, 0, var(--light-secondary-opacity));
         z-index: 5;
         -webkit-align-items: center;
@@ -44,15 +43,14 @@
         padding: 24px;
       }
       .title {
-        color: rgba(0,0,0,0.87);
+        color: rgba(0 ,0, 0, var(--dark-primary-opacity));
         font-size: 16px;
         font-weight: 500;
         line-height: 24px;
         margin: 0;
       }
       ::slotted(.body) {
-        color: rgba(0,0,0,0.54);
-        font-size: 14px;
+        color: rgba(0, 0, 0, var(--dark-secondary-opacity));
         line-height: 20px;
         margin: 0;
       }
