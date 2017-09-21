@@ -40,6 +40,7 @@ Example:
       }
       :host([full]) > .container {
         max-width: inherit;
+        width: 100%;
       }
       .image {
         text-align: center;
@@ -54,11 +55,13 @@ Example:
       }
       .main {
         padding: 24px;
+        width: 100%;
       }
       :host([narrow]) > .container {
         @apply --layout-vertical;
       }
     </style>
+
     <div class="container">
       <template is="dom-if" if="[[cardImage]]" restamp="true">
         <div class="image"><img src="[[cardImage]]" /></div>
