@@ -2,7 +2,6 @@
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="../paper-styles/shadow.html">
 
-<link rel="import" href="exmg-resize-mixin.html">
 <link rel="import" href="exmg-paper-card-shared-styles.html">
 
 <!--
@@ -37,7 +36,7 @@ Example:
   </template>
 
   <script>
-    class ExmgCard extends ExmgResizeMixin(Polymer.Element) {
+    class ExmgCard extends Polymer.Element {
       static get is() {
         return 'exmg-paper-card';
       }

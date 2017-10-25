@@ -1,7 +1,6 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">[m ""]
 
-<link rel="import" href="exmg-resize-mixin.html">
 <link rel="import" href="exmg-paper-card-shared-styles.html">
 
 <!--
@@ -35,13 +34,20 @@ Example:
       .container {
         max-width: 700px;
         margin: 0 auto;
-        @apply --layout-horizontal;
+        @apply --layout-vertical;
         @apply --layout-center-justified;
       }
       :host([full]) > .container {
         max-width: inherit;
         width: 100%;
       }
+
+      @media (min-width: 768px) {
+        :host(:not([minor])) > .container {
+          @apply --layout-horizontal;
+        }
+      }
+
       .image {
         text-align: center;
       }
@@ -49,16 +55,10 @@ Example:
         padding: 34px 24px;
         max-width: 180px;
       }
-      :host([narrow]) .image img {
-        padding: 24px 0 0 0;
-        max-width: 120px;
-      }
       .main {
         padding: 24px;
         width: 100%;
-      }
-      :host([narrow]) > .container {
-        @apply --layout-vertical;
+        box-sizing: border-box;
       }
     </style>
 
@@ -70,6 +70,9 @@ Example:
         <template is="dom-if" if="[[title]]" restamp="true">
           <div class="title">[[title]]</div>
         </template>
+        <template is="dom-if" if="[[tagline]]" restamp="true">
+          <div class="tagline">[[tagline]]</div>
+        </template>
         <slot name="body"></slot>
       </div>
       <slot name="actions"></slot>
@@ -77,7 +80,7 @@ Example:
   </template>
 
   <script>
-    class ExmgPaperInfoCard extends ExmgResizeMixin(Polymer.Element) {
+    class ExmgPaperInfoCard extends Polymer.Element {
       static get is() {
         return 'exmg-paper-info-card';
       }
@@ -91,6 +94,10 @@ Example:
           * Title displayed inside the card
           */
           title: String,
+          /**
+          * Tagline displayed inside the card
+          */
+          tagline: String,
           /**
           * The full attribute removes the left and right padding inside the card so it is using all available space
           */
