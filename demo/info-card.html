@@ -28,7 +28,7 @@
           margin-left: auto;
           margin-right: auto;
         }
-        .normal{
+        .normal {
           color: var(--primary-color);
         }
         a {
@@ -58,6 +58,10 @@
           margin-left: 4px;
           vertical-align: middle;
         }
+
+        .links a {
+          margin-right: 16px;
+        }
       </style>
     </custom-style>
   </head>
@@ -67,7 +71,13 @@
       <demo-snippet>
         <template>
           <exmg-paper-info-card title="Test Title">
-            <div slot="body" class="body"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit  feugait nulla facilisi.</p><a href="#" target="_blank" class="open-new">More information</a></div>
+            <div slot="body" class="body">
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip <a href="#">ex ea commodo</a> consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit  feugait nulla facilisi.</p>
+              <div class="links">
+                <a href="#" target="_blank" class="open-new">More information</a>
+                <a href="#" target="_blank">Another Link</a>
+              </div>
+            </div>
           </exmg-paper-info-card>
         </template>
       </demo-snippet>
@@ -86,7 +96,12 @@
       <demo-snippet>
         <template>
           <exmg-paper-info-card card-image="rocket.png" title="Test Title">
-            <div slot="body" class="body"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit feugait nulla facilisi.</p><a href="#" target="_blank" class="open-new">More information</a></div>
+            <div slot="body" class="body">
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit feugait nulla facilisi.</p>
+              <div class="links">
+                <a href="#" target="_blank" class="open-new">More information</a>
+              </div>
+            </div>
           </exmg-paper-info-card>
         </template>
       </demo-snippet>
