@@ -8,11 +8,17 @@
       .container {
         max-width: 700px;
         margin: 0 auto;
-        @apply --layout-horizontal;
+        @apply --layout-vertical;
         @apply --layout-center-justified;
       }
       :host([full]) > .container {
-         max-width: inherit;
+        max-width: inherit;
+        width: 100%;
+      }
+      @media (min-width: 768px) {
+        :host(:not([minor])) > .container {
+         @apply --layout-horizontal;
+        }
       }
       .image {
         text-align: center;
@@ -21,15 +27,10 @@
         padding: 34px 24px;
         max-width: 180px;
       }
-      :host([narrow]) .image img {
-        padding: 24px 0 0 0;
-        max-width: 120px;
-      }
       .main {
         padding: 24px;
-      }
-      :host([narrow]) > .container {
-        @apply --layout-vertical;
+        width: 100%;
+        box-sizing: border-box;
       }
     </style>
     <div class="container">
@@ -39,6 +40,9 @@
       <div class="main">
         <template is="dom-if" if="[[title]]" restamp="true">
           <div class="title">[[title]]</div>
+        </template>
+        <template is="dom-if" if="[[tagline]]" restamp="true">
+          <div class="tagline">[[tagline]]</div>
         </template>
         <slot name="body"></slot>
       </div>
@@ -89,6 +93,10 @@
           * Image url of seaction logo/Image
           */
           cardImage: String,
+          /**
+          * Tagline displayed inside the card
+          */
+          tagline: String,
           /**
           * Title displayed inside the card
           */
