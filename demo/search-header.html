@@ -15,19 +15,17 @@
     <link rel="import" href="../../paper-icon-button/paper-icon-button.html">
     <link rel="import" href="../../paper-styles/paper-styles.html">
 
-    <link rel="import" href="../../exmg-datatable/exmg-datatable.html">
-    <link rel="import" href="../../exmg-datatable/exmg-thead.html">
-    <link rel="import" href="../../exmg-datatable/exmg-tbody.html">
-    <link rel="import" href="../../exmg-datatable/exmg-icons.html">
-    <link rel="import" href="../../exmg-datatable/exmg-data-filter.html">
-
-    <link rel="import" href="../../exmg-cms-styles/exmg-cms-page-styles.html">
+    <link rel="import" href="../../exmg-paper-datatable/exmg-paper-datatable.html">
+    <link rel="import" href="../../exmg-paper-datatable/exmg-paper-thead.html">
+    <link rel="import" href="../../exmg-paper-datatable/exmg-paper-tbody.html">
+    <link rel="import" href="../../exmg-paper-datatable/exmg-paper-icons.html">
+    <link rel="import" href="../../exmg-paper-datatable/exmg-paper-data-filter.html">
 
     <link rel="import" href="../exmg-paper-card.html">
     <link rel="import" href="../exmg-paper-search-header.html">
 
     <custom-style>
-      <style is="custom-style" include="exmg-cms-page-styles">
+      <style is="custom-style">
         :host {
           @apply --paper-font-common-base;
           font-size: 14px;
@@ -81,41 +79,55 @@
                 <exmg-paper-search-header filter-value="{{filterValue}}" place-holder="Search admin user by name">
                   <paper-button raised>Add Item</paper-button>
                 </exmg-paper-search-header>
-                <exmg-datatable>
+                <exmg-paper-datatable>
                   <!-- THead -->
-                  <exmg-thead>
+                  <exmg-paper-thead>
                     <template>
                       <div class="tr">
-                        <div class="th">Name</div>
-                        <div class="th">Email</div>
-                        <div class="th">Country</div>
-                        <div class="th"></div>
-                      </div>
-                    </template>
-                  </exmg-thead>
-                  <!-- TBody -->
-                  <exmg-tbody items="[[filteredItems]]">
-                    <template>
-                      <div class="tr">
-                        <div class="td">[[item.name]]</div>
-                        <div class="td">[[item.email]]</div>
-                        <div class="td">[[item.country]]</div>
-                        <div class="td hover" style="text-align:right;">
-                          <span><paper-icon-button icon="exmg-icons:content-copy"></paper-icon-button></span>
-                          <span><paper-icon-button icon="exmg-icons:more-vert"></paper-icon-button></span>
+                        <div class="th flex">
+                          <span>Name</span>
+                        </div>
+                        <div class="th flex">
+                          <span>Email</span>
+                        </div>
+                        <div class="th flex">
+                          <span>Country</span>
+                        </div>
+                        <div class="th" style="text-align:right; width:120px;">
+                          <span></span>
                         </div>
                       </div>
                     </template>
-                  </exmg-tbody>
-                </exmg-datatable>
+                  </exmg-paper-thead>
+                  <!-- TBody -->
+                  <exmg-paper-tbody items="[[filteredItems]]">
+                    <template>
+                      <div class="tr">
+                       <div class="td flex">
+                         <span>[[item.name]]</span>
+                       </div>
+                       <div class="td flex">
+                         <span>[[item.email]]</span>
+                       </div>
+                       <div class="td flex">
+                         <span>[[item.country]]</span>
+                       </div>
+                       <div class="td " style="text-align:right; width:120px;">
+                         <span><paper-icon-button icon="exmg-paper-icons:content-copy"></paper-icon-button></span>
+                         <span><paper-icon-button icon="exmg-paper-icons:more-vert"></paper-icon-button></span>
+                       </div>
+                     </div>
+                    </template>
+                  </exmg-paper-tbody>
+                </exmg-paper-datatable>
               </exmg-paper-card>
 
               <!-- Filter items by filter value and return resulting items to the data provider  -->
-              <exmg-data-filter
+              <exmg-paper-data-filter
                 raw-items='[{"name": "Mark", "email": "mark@test.com","country": "Netherlands"}, {"name": "Jesse", "email": "jesse@test.com","country": "Netherlands"}]'
                 items="{{filteredItems}}"
                 filter-value="[[filterValue]]"
-                filter-fields="name,email"></exmg-data-filter>
+                filter-fields="name,email"></exmg-paper-data-filter>
 
             </template>
           </dom-bind>
