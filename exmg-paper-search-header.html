@@ -5,30 +5,6 @@
 <link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 
-<!--
-`<exmg-paper-search-header>` is Description
-
-@element ExmgSearchHeader
--->
-
-<!--
-`exmg-paper-search-header` displays a card header including a search function.
-
-See card demo page for an working exmaple on how to use
-
-Example:
-
-  <exmg-paper-search-header filter-value="{{filterValue}}" place-holder="Search user">
-    <paper-button raised>Add Item</paper-button>
-  </exmg-paper-search-header>
-
-@customElement
-@polymer
-@group Exmg Elements
-@element exmg-paper-card
-@demo demo/index.html
--->
-
 <dom-module id="exmg-paper-search-header">
   <template>
     <style>
@@ -105,7 +81,27 @@ Example:
   </template>
 
   <script>
-    class ExmgSearchHeader extends Polymer.GestureEventListeners(Polymer.Element) {
+  'use strict';
+  {
+    /**
+     * The `<exmg-sortable>` displays a card header including a search function.
+     *
+     * See card demo page for an working exmaple on how to use
+     *
+     * ```html
+     * <exmg-paper-search-header filter-value="{{filterValue}}" place-holder="Search user">
+     *   <paper-button raised>Add Item</paper-button>
+     * </exmg-paper-search-header>
+     * ```
+     *
+     * @customElement
+     * @polymer
+     * @memberof Exmg
+     * @element exmg-paper-search-header
+     * @group Exmg Paper Elements
+     * @demo demo/search-header.html
+     */
+    class SearchHeaderElement extends Polymer.GestureEventListeners(Polymer.Element) {
       static get is() {
         return 'exmg-paper-search-header';
       }
@@ -159,6 +155,12 @@ Example:
       }
     }
 
-    window.customElements.define(ExmgSearchHeader.is, ExmgSearchHeader);
+    window.customElements.define(SearchHeaderElement.is, SearchHeaderElement);
+    /**
+     * @namespace Exmg
+     */
+    window.Exmg = window.Exmg || {};
+    Exmg.SearchHeaderElement = SearchHeaderElement;
+  }
   </script>
 </dom-module>
