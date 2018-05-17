@@ -6,12 +6,12 @@
 
     <title>exmg-paper-card test</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="../../web-component-tester/browser.js"></script>
-    <script src="../../test-fixture/test-fixture-mocha.js"></script>
+    <script src="@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="web-component-tester/browser.js"></script>
+    <script src="@polymer/test-fixture/test-fixture-mocha.js"></script>
 
-    <link rel="import" href="../../test-fixture/test-fixture.html">
-    <link rel="import" href="../exmg-paper-card.html">
+    <script type="module" src="@polymer/test-fixture/test-fixture.js"></script>
+    <script type="module" src="../exmg-paper-card.js"></script>
   </head>
   <body>
 
@@ -21,17 +21,19 @@
       </template>
     </test-fixture>
 
-    <script>
-      suite('exmg-paper-card', function() {
-        let el;
-        setup(function() {
-          el = fixture('basic');
-        });
-        test('element is upgraded', function() {
-          assert.equal(el.constructor.is, 'exmg-paper-card');
-        });
-      });
-    </script>
+    <script type="module">
+import '@polymer/test-fixture/test-fixture.js';
+import '../exmg-paper-card.js';
+suite('exmg-paper-card', function() {
+  let el;
+  setup(function() {
+    el = fixture('basic');
+  });
+  test('element is upgraded', function() {
+    assert.equal(el.constructor.is, 'exmg-paper-card');
+  });
+});
+</script>
 
   </body>
 </html>

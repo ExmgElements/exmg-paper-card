@@ -1,29 +1,53 @@
 {
-  "name": "exmg-paper-card",
-  "private": true,
+  "name": "@exmg/exmg-paper-card",
+  "flat": true,
+  "version": "3.0.0",
   "description": "Material design style cards",
-  "main": "exmg-paper-card.html",
-  "repository": "ExmgElements/exmg-paper-card",
-  "keywords": [
-    "Exmg",
-    "ExmgElements",
-    "exmg-paper-card",
-    "web-components",
-    "web-component",
-    "polymer"
+  "contributors": [
+    "Ex Machina Group"
   ],
-  "author": "Ex Machina",
+  "keywords": [
+    "web-components",
+    "polymer",
+    "card"
+  ],
+  "main": "exmg-paper-card.html",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ExmgElements/exmg-paper-card.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/ExmgElements/exmg-paper-card",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0-pre.1",
+    "@polymer/iron-flex-layout": "^3.0.0-pre.1",
+    "@polymer/paper-icon-button": "^3.0.0-pre.1",
+    "@polymer/iron-icon": "^3.0.0-pre.1",
+    "@polymer/iron-input": "^3.0.0-pre.1",
+    "@polymer/paper-styles": "^3.0.0-pre.1"
+  },
   "devDependencies": {
-    "bower": "latest",
+    "@polymer/iron-component-page": "^3.0.0-pre.19",
+    "@polymer/paper-styles": "^3.0.0-pre.19",
+    "@polymer/paper-button": "^3.0.0-pre.19",
+    "@polymer/iron-demo-helpers": "^3.0.0-pre.19",
+    "@webcomponents/webcomponentsjs": "^2.0.0-beta.2",
+    "@exmg/exmg-paper-datatable": "^3.0.0",
     "eslint": "^4.11.0",
     "eslint-config-exmg": "latest",
     "eslint-plugin-html": "^3.0.0",
-    "polymer-cli": "^1.2.0"
+    "wct-browser-legacy": "^1.0.0"
   },
-  "homepage": "https://github.com/ExmgElements/",
+  "resolutions": {
+    "@webcomponents/webcomponentsjs": "2.0.0",
+    "type-detect": "1.0.0",
+    "supports-color": "3.1.2",
+    "inherits": "2.0.3",
+    "samsam": "1.1.2"
+  },
   "scripts": {
-    "lint": "polymer lint --rules polymer-2 --input *.html",
+    "lint": "polymer lint --rules polymer-3 --input *.js",
     "eslint": "eslint . --ext js,html --ignore-path .gitignore",
-    "analyze": "polymer analyze --input exmg-paper-card.html exmg-paper-info-card.html exmg-paper-search-header.html > analysis.json"
+    "analyze": "polymer analyze --input exmg-paper-card.js exmg-paper-info-card.js exmg-paper-search-header.js > analysis.json"
   }
 }

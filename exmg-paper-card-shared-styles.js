@@ -1,10 +1,12 @@
-<link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
-<link rel="import" href="../paper-styles/color.html">
-<link rel="import" href="../paper-styles/shadow.html">
-<link rel="import" href="../paper-styles/typography.html">
+import '@polymer/polymer/polymer-element.js';
+import '@polymer/iron-flex-layout/iron-flex-layout.js';
+import '@polymer/paper-styles/color.js';
+import '@polymer/paper-styles/shadow.js';
+import '@polymer/paper-styles/typography.js';
+const documentContainer = document.createElement('div');
+documentContainer.setAttribute('style', 'display: none;');
 
-<dom-module id="exmg-paper-card-shared-styles">
+documentContainer.innerHTML = `<dom-module id="exmg-paper-card-shared-styles">
   <template>
     <style>
       :host {
@@ -75,4 +77,6 @@
       }
     </style>
   </template>
-</dom-module>
+</dom-module>`;
+
+document.head.appendChild(documentContainer);
