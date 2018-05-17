@@ -11,7 +11,7 @@
     "polymer",
     "card"
   ],
-  "main": "exmg-paper-card.html",
+  "main": "exmg-paper-card.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:ExmgElements/exmg-paper-card.git"
