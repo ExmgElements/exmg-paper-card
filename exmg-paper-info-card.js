@@ -1,6 +1,6 @@
 import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
-import './exmg-paper-card-shared-styles.js';
+import {sharedCardStyles} from './exmg-paper-card-shared-styles.js';
 
 /**
 * @namespace Exmg
@@ -40,9 +40,10 @@ window.Exmg = window.Exmg || {};
 class InfoCardElement extends PolymerElement {
   static get template() {
     return html`
-      <style include="exmg-paper-card-shared-styles">
+      ${sharedCardStyles}
+      <style>
         .container {
-          max-width: 700px;
+          max-width: 576px;
           margin: 16px auto;
           @apply --layout-vertical;
           @apply --layout-center-justified;
@@ -54,7 +55,8 @@ class InfoCardElement extends PolymerElement {
         }
         @media (min-width: 768px) {
           :host(:not([minor])) > .container {
-          @apply --layout-horizontal;
+            width: 100%;
+            @apply --layout-horizontal;
           }
         }
         .image {
@@ -69,6 +71,7 @@ class InfoCardElement extends PolymerElement {
           padding: 24px;
           width: 100%;
           box-sizing: border-box;
+          @apply --layout-flex;
           @apply --exmg-paper-info-card-main;
         }
       </style>

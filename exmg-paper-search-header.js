@@ -88,7 +88,7 @@ class SearchHeaderElement extends GestureEventListeners(PolymerElement) {
         }
       </style>
 
-      <div class\$="[[_computeSearchClasses(_isSearch)]]">
+      <div class$="[[_computeSearchClasses(_isSearch)]]">
         <template is="dom-if" if="[[_isSearch]]" restamp="true">
           <iron-icon icon="[[icon]]"></iron-icon>
           <iron-input bind-value="{{filterValue}}">

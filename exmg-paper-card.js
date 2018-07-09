@@ -1,5 +1,5 @@
 import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
-import './exmg-paper-card-shared-styles.js';
+import {sharedCardStyles} from './exmg-paper-card-shared-styles.js';
 
 /**
 * @namespace Exmg
@@ -43,7 +43,7 @@ class CardElement extends PolymerElement {
   }
   static get template() {
     return html`
-      <style include="exmg-paper-card-shared-styles"></style>
+      ${sharedCardStyles}
       <slot></slot>
     `;
   }
