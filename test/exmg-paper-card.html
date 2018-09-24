@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
     <title>exmg-paper-card test</title>
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
 
-    <script src="@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
-    <script src="web-component-tester/browser.js"></script>
-    <script src="@polymer/test-fixture/test-fixture-mocha.js"></script>
-
-    <script type="module" src="@polymer/test-fixture/test-fixture.js"></script>
     <script type="module" src="../exmg-paper-card.js"></script>
   </head>
   <body>
@@ -22,18 +19,17 @@
     </test-fixture>
 
     <script type="module">
-import '@polymer/test-fixture/test-fixture.js';
-import '../exmg-paper-card.js';
-suite('exmg-paper-card', function() {
-  let el;
-  setup(function() {
-    el = fixture('basic');
-  });
-  test('element is upgraded', function() {
-    assert.equal(el.constructor.is, 'exmg-paper-card');
-  });
-});
-</script>
+
+      suite('exmg-paper-card', function() {
+        let el;
+        setup(function() {
+          el = fixture('basic');
+        });
+        test('element is upgraded', function() {
+          assert.equal(el.constructor.is, 'exmg-paper-card');
+        });
+      });
+    </script>
 
   </body>
 </html>
